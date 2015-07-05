@@ -1,0 +1,6 @@
+composer create-project --prefer-dist yiisoft/yii2-app-basic basic
+yii migrate/create create_articles_table
+yii migrate
+yii gii/module --moduleID=Admin --moduleClass=app\modules\admin
+yii fixture/templates
+yii fixture/generate-all --count=50
