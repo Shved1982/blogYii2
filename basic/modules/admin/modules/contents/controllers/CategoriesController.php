@@ -33,6 +33,8 @@ class CategoriesController extends Controller
      */
     public function actionIndex()
     {
+		$this->layout = '//admin';
+		
         $dataProvider = new ActiveDataProvider([
             'query' => Categories::find(),
 		    'pagination' => [
@@ -52,7 +54,9 @@ class CategoriesController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+		$this->layout = '//admin';
+        
+		return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
@@ -64,6 +68,8 @@ class CategoriesController extends Controller
      */
     public function actionCreate()
     {
+		$this->layout = '//admin';
+		
         $model = new Categories();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -83,6 +89,8 @@ class CategoriesController extends Controller
      */
     public function actionUpdate($id)
     {
+		$this->layout = '//admin';
+		
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

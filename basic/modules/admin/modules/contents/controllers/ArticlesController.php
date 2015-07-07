@@ -33,6 +33,8 @@ class ArticlesController extends Controller
      */
     public function actionIndex()
     {
+		$this->layout = '//admin';
+		
         $dataProvider = new ActiveDataProvider([
             'query' => Articles::find(),
 			'pagination' => [
@@ -52,6 +54,8 @@ class ArticlesController extends Controller
      */
     public function actionView($id)
     {
+		$this->layout = '//admin';
+		
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -64,6 +68,8 @@ class ArticlesController extends Controller
      */
     public function actionCreate()
     {
+		$this->layout = '//admin';
+		
         $model = new Articles();
 		$model->date_public = date("Y-m-d H:i:s");
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -83,6 +89,8 @@ class ArticlesController extends Controller
      */
     public function actionUpdate($id)
     {
+		$this->layout = '//admin';
+		
         $model = $this->findModel($id);
 		$model->date_public = date("Y-m-d H:i:s");
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

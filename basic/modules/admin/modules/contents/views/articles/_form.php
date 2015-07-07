@@ -20,7 +20,7 @@ use app\modules\admin\modules\contents\models\Categories;
 
     <?= $form->field($model, 'short_text')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'full_text')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'full_text')->textarea(['rows' => 30]) ?>
 
    <?= $form->field($model, 'is_active')->dropDownList(['1' => 'Включить', '0' => 'Выключить']) ?>
 

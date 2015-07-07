@@ -25,7 +25,7 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
     <div class="wrap">
-        <?php
+         <?php
             NavBar::begin([
                 'brandLabel' => 'Shvedko',
                 'brandUrl' => Yii::$app->homeUrl,
@@ -36,15 +36,8 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav'],
                 'items' => [
-                    ['label' => 'Главная', 'url' => ['/site/index']],
-					!Yii::$app->user->isGuest ?
-						['label' => 'Админ-панель', 'url' => ['/site/login']] : '',
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Вход', 'url' => ['/site/login']] :
-                        ['label' => 'Выход (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']],
-					
+                    ['label' => 'Редактировать категории', 'url' => ['/admin/contents/categories']],
+					['label' => 'Редактировать статьи', 'url' => ['/admin/contents/articles']],
                 ],
             ]);
             NavBar::end();

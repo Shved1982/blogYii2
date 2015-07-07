@@ -2,9 +2,11 @@
 
 namespace app\modules\blog\controllers;
 
+use Yii;
 use yii\web\Controller;
 use app\modules\admin\modules\contents\models\Categories;
 use app\modules\admin\modules\contents\models\Articles;
+use yii\data\Pagination;
 
 class DefaultController extends Controller
 {
@@ -36,7 +38,7 @@ class DefaultController extends Controller
 		{
 			throw new \yii\web\HttpException(404, 'Страница не найдена', 404);
 		}
-		$categorie = Categories::find()->where(['id' => $id])->with('articles')->active()->one();
+		$categorie = Categories::find()->where(['id' => $id])->with('articles')->active();
 		
 		$countQuery = clone $categorie;
 		$pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => Yii::$app->params['pageSize']]);
@@ -44,7 +46,9 @@ class DefaultController extends Controller
 		$post = $categorie->offset($pages->offset)
 					->limit($pages->limit)
 					->all();
-					
+			
+		$categorie = $categorie->one();
+		
 		if(!($categorie instanceof Categories))
 		{
 			throw new \yii\web\HttpException(404, 'Страница не найдена', 404);

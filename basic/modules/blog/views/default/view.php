@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use app\modules\admin\modules\contents\models\Categories;
 use app\modules\admin\modules\contents\models\Articles;
+use yii\widgets\LinkPager;
 
 /* @var $this yii\web\View */
 $this->title = 'Yii2 Blog with Google API';
@@ -24,7 +25,7 @@ $this->title = 'Yii2 Blog with Google API';
 					<?endforeach;?>
 					<?php
 						echo LinkPager::widget([
-							'pages' => $pages,
+							'pagination' => $pages,
 						]);
 					?>
 				</ul>

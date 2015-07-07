@@ -18,6 +18,7 @@ echo Menu::widget([
     'items' => $list,
 	'options' => [
 					'class' => 'nav nav-list bs-docs-sidenav affix',
+					'style' => 'width: 150px; height: 600px; overflow-y: scroll;'
 					
 				],
 ]);
