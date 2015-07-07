@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DefaultController implements the CRUD actions for categories model.
+ * Контроллер управления категориями блога
  */
 class CategoriesController extends Controller
 {
@@ -28,7 +28,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Lists all categories models.
+     * Метод генерации списка категорий блога
      * @return mixed
      */
     public function actionIndex()
@@ -48,8 +48,8 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Displays a single categories model.
-     * @param integer $id
+     * Метод просмотра категории блога
+     * @param integer $id уникальный идентификатор категории
      * @return mixed
      */
     public function actionView($id)
@@ -62,8 +62,8 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Creates a new categories model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Метод создания новой категории блога
+     * Если создание пройдет успешно, то браузер перенаправится на  старницу просмотра категории
      * @return mixed
      */
     public function actionCreate()
@@ -82,9 +82,9 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Updates an existing categories model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * Редактирование существующей категории
+     * Если редактирование пройдет успешно, то браузер перенаправится на  старницу просмотра категории
+     * @param integer $id уникальный идентификатор категории блога
      * @return mixed
      */
     public function actionUpdate($id)
@@ -102,10 +102,10 @@ class CategoriesController extends Controller
         }
     }
 
-    /**
-     * Deletes an existing categories model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+	/**
+     * Метод удаления категории блога
+     * Если удаление пройдет успешно, то браузер перенаправится на  старницу со списком категорий
+     * @param integer $id уникальный идентификатор категории блога
      * @return mixed
      */
     public function actionDelete($id)
@@ -124,11 +124,11 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Finds the categories model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return categories the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * Метод поиска категории по уникальному идентификатору (первичному ключу)
+     * Если категория не будет найдена то будет вызвано 404 исключение
+     * @param integer $id уникальный идентификатор категории блога
+     * @return articles экземпляр класса Аrticles 
+     * @throws NotFoundHttpException если запись не будет найдена
      */
     protected function findModel($id)
     {

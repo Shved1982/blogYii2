@@ -6,8 +6,17 @@ use yii\web\Controller;
 use Yii;
 use app\modules\oauth\helpers\Gmail;
 
+/**
+ * Контроллер получения и просмотра учетных данных из Gmail
+ */
 class CallbackController extends Controller
 {
+	/**
+     * Метод генерации списка учетных данных
+	 * Если не будет получен ответ от Gmail то будет вызвано 403 исключение
+     * @return mixed
+	 * @throws NotFoundHttpException нет ответа от Gmail
+     */
     public function actionIndex()
     {
         if(!isset($_GET) || !array_key_exists('code', $_GET))

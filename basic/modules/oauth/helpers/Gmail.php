@@ -5,8 +5,21 @@ namespace app\modules\oauth\helpers;
 use yii\helpers\Html;
 use Yii;
 
+/**
+ * Класс взаимодействия с API Gmail
+ * основные возможности:
+ * 1. Отправка POST запроса для получения ключа доступа
+ * 2. Отправка GET запроса для получения массива данных учетной записи пользователя
+ */
 class Gmail
 {
+	/**
+     * Метод отправки POST запроса для получения ключа доступа
+	 * Если отсутствует в передаваемых параметрах временный ключ API Gmail, то будет вызвано 403 исключение
+	 * @param integer $code временный ключ API Gmail
+     * @return string постоянный ключ API Gmail
+	 * @throws NotFoundHttpException отсутствует в передаваемых параметрах временный ключ API Gmail
+     */
     public static function sendPost($code = FALSE)
     {
         if($code == FALSE || empty($code))
@@ -29,6 +42,13 @@ class Gmail
 		return $result->access_token;
 	}
 	
+	/**
+     * Метод отправки GET запроса для получения массива данных учетной записи пользователя
+	 * Если отсутствует в передаваемых параметрах постоянный ключ API Gmail, то будет вызвано 403 исключение
+	 * @param integer $access_token постоянный ключ API Gmail
+     * @return array ассоциативный массив данных пользователя
+	 * @throws NotFoundHttpException отсутствует в передаваемых параметрах постоянный ключ API Gmail
+     */
 	public static function sendGet($access_token = FALSE)
     {
         if($access_token == FALSE || empty($access_token))

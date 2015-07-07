@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ArticlesController implements the CRUD actions for articles model.
+ * Контроллер управления статьями блога
  */
 class ArticlesController extends Controller
 {
@@ -28,7 +28,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Lists all articles models.
+     * Метод генерации списка статей блога
      * @return mixed
      */
     public function actionIndex()
@@ -48,8 +48,8 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Displays a single articles model.
-     * @param integer $id
+     * Метод просмотра статьи блога
+     * @param integer $id уникальный идентификатор статьи
      * @return mixed
      */
     public function actionView($id)
@@ -62,8 +62,8 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Creates a new articles model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Метод создания новой статьи блога
+     * Если создание пройдет успешно, то браузер перенаправится на  старницу просмотра статьи
      * @return mixed
      */
     public function actionCreate()
@@ -82,9 +82,9 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Updates an existing articles model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * Редактирование существующей статьи
+     * Если редактирование пройдет успешно, то браузер перенаправится на  старницу просмотра статьи
+     * @param integer $id уникальный идентификатор статьи блога
      * @return mixed
      */
     public function actionUpdate($id)
@@ -103,9 +103,9 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Deletes an existing articles model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * Метод удаления статьи блога
+     * Если удаление пройдет успешно, то браузер перенаправится на  старницу со списком статей
+     * @param integer $id уникальный идентификатор статьи блога
      * @return mixed
      */
     public function actionDelete($id)
@@ -118,11 +118,11 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Finds the articles model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return articles the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
+     * Метод поиска статьи по уникальному идентификатору (первичному ключу)
+     * Если статья не будет найдена то будет вызвано 404 исключение
+     * @param integer $id уникальный идентификатор статьи блога
+     * @return articles экземпляр класса Аrticles 
+     * @throws NotFoundHttpException если запись не будет найдена
      */
     protected function findModel($id)
     {

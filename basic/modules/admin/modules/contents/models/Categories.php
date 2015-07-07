@@ -58,6 +58,10 @@ class Categories extends \yii\db\ActiveRecord
         return new CategoriesQuery(get_called_class());
     }
 	
+	/**
+     * Метод возвращает список категорий в виде ассоциативного массива
+     * @return array список категорий
+     */
 	public static function getCategorieslList()
 	{
 		$model = Categories::find()->active()->all();
@@ -71,6 +75,11 @@ class Categories extends \yii\db\ActiveRecord
 		return $result;
 	}
 	
+	/**
+     * Метод возвращает название категори
+	 * @param integer $id уникальный идентификатор категории блога
+     * @return string название категори
+     */
 	public static function getCategoriesName($id)
 	{
 		$model = Categories::findOne($id);
@@ -78,6 +87,9 @@ class Categories extends \yii\db\ActiveRecord
 		return $model->name;
 	}
 	
+	/**
+     * Метод устанавливает связь один ко многим экземпляра класса с классом Articles
+     */
 	public function getArticles()
 	{
 		return $this->hasMany(Articles::className(), ['categories__id' => 'id'])->where(['is_active' => 1]);

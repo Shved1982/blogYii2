@@ -8,8 +8,15 @@ use app\modules\admin\modules\contents\models\Categories;
 use app\modules\admin\modules\contents\models\Articles;
 use yii\data\Pagination;
 
+/**
+ * Контроллер просмотра категорий блога
+ */
 class DefaultController extends Controller
 {
+	/**
+     * Метод генерации списка категорий блога
+     * @return mixed
+     */
     public function actionIndex()
     {
 		$categories = Categories::find()->active();
@@ -28,6 +35,13 @@ class DefaultController extends Controller
 		]);
     }
 	
+	/**
+     * Метод просмотра категории блога и списка связанных статей
+	 * Если категория не будет найдена то будет вызвано 404 исключение
+     * @param integer $id уникальный идентификатор статьи
+	 * @throws NotFoundHttpException если запись не будет найдена
+     * @return mixed
+     */
 	public function actionView($id = FALSE)
     {
 		if($id == FALSE && isset($_GET) && array_key_exists('id', $_GET))
